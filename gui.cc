@@ -141,7 +141,10 @@ int main(int argc, char **argv)
   QApplication app(argc, argv);
   app.setQuitOnLastWindowClosed(false);
 
+#if QT_VERSION < 0x050000
   QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
+#endif
+
   QTextCodec::setCodecForLocale(QTextCodec::codecForName("UTF-8"));
 
   if (!QSystemTrayIcon::isSystemTrayAvailable()) {
